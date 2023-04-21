@@ -12,10 +12,10 @@ public interface ProductoService {
 	
 	// Buscar un producto por su ID
 	Producto buscarUno(int idProducto);
-	
+	/*
 	// Lista de los productos segun su familia/consola
 	List<Producto> findByConsole(String consola);
-	
+	*/
 	// Ordenación de productos
 	List<Producto> OrderByPriceAsc();
 	List<Producto> OrderByPriceDesc();
