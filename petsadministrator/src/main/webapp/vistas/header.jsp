@@ -27,7 +27,7 @@
 			<div class="py-3 container-fluid">
 		    	<div class="d-flex flex-wrap align-items-center justify-content-around">
 			        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-black text-decoration-none">
-			            <img class="logo-img" src="/images/logo-game-store.png">
+			            <img class="logo-img" src="/images/logo_pets_bg.png">
 			        </a>
 			
 			        <form class="col-lg-4 col-12 col-md-auto mb-3 mb-lg-0 me-lg-3" action="/buscador" method="get" >

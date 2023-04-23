@@ -30,11 +30,13 @@ public class ProductoRestController {
 		return pserv.todosProductos();
 	}
 	
+	/*
 	// Ver los productos que pertenecen a una familia (sonsola)
 	@GetMapping("/porConsola/{consola}")
 	public List<Producto> porConsola(@PathVariable("consola") String  consola){
 		return pserv.findByConsole(consola);
 	}
+	*/
 
 	// Ver el precio del producto que se pase
 	@GetMapping("/verPrecio/{nombre}")

@@ -61,15 +61,17 @@ public class ProductosController {
 				
 		return "lista-productos";
 	}
+
 	
 	// Mostrar Productos por tipo de consola (Familia)
-	@GetMapping("/lista-productos/{consola}")
-	public String verProductosConsola(Model model, @PathVariable(name="consola") String consola) {
-		List<Producto> lista = pserv.findByConsole(consola);
+	@GetMapping("/lista-productos/{tamano}")
+	public String verProductosConsola(Model model, @PathVariable(name="tamano") String tamano) {
+		List<Producto> lista = pserv.findByTamano(tamano);
 		model.addAttribute("listaProductos", lista);
 				
 		return "lista-productos";
 	}
+	
 	
 	// Buscador de productos
 	@GetMapping("/buscador")

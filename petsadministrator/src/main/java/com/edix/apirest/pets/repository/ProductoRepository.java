@@ -10,10 +10,10 @@ import com.edix.apirest.pets.entities.Producto;
 
 public interface ProductoRepository extends JpaRepository<Producto, Integer>{
 
-	/*
-	@Query("select p from Producto p where p.familia.nombre = ?1")
-	public List<Producto> findByConsole(String consola);
-	*/
+	
+	@Query("select p from Producto p where p.tamano.nombre = ?1")
+	public List<Producto> findByTamano(String tamano);
+	
 	@Query("select p from Producto p order by precio ASC")
 	public List<Producto> orderByPriceAsc();
 	

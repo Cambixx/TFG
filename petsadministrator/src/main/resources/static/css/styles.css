@@ -70,7 +70,8 @@ main{
 }
 
 .logo-img{
-    width: 10rem;
+    width: 6rem;
+    border-radius: 50%;
 }
 
 nav .nav-link{
@@ -87,6 +88,14 @@ nav .nav-link{
 .page-header{
 	padding: 2rem 0;
 	background-color: #f4f4f4;
+}
+
+/*  HERO  */
+
+.hero_img img {
+	width: 100%;
+	height: auto;
+	
 }
 
 /*  FOOTER  */
@@ -183,6 +192,7 @@ nav .nav-link{
 .portfolio-wrapper {
     position: relative;
     overflow: hidden;
+    border-radius: 10px;
 }
 
 .portfolio-wrapper a, .portfolio-wrapper a:hover{
@@ -198,13 +208,13 @@ nav .nav-link{
     transition: all 500ms ease;
 }
 .portfolio-wrapper .portfolio-image img {
-    transform: scale(1.2);
+    
     will-change: transform;
     transition: all 0.5s ease;
     width: 100%;
 }
 .portfolio-wrapper:hover .portfolio-image img {
-    transform: none;
+    transform: scale(0.9);
 }
 .portfolio-overlay:before {
     position: absolute;

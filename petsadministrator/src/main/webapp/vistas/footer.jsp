@@ -15,7 +15,7 @@
 		<div class="container">
 	      <div class="row px-5">
 	        <div class="col-md-5 mb-3">
-	            <a class="navbar-brand" href="#"><img class="logo-img" src="/images/logo-game-store-white.png"></a>
+	            <a class="navbar-brand" href="#"><img class="logo-img" src="/images/logo_pets_nobg.png"></a>
 	            <p class="mt-3">
 	              Somos el Grupo 14 de la asignatura de Desarrollo Web en Entorno Servidor
 	            </p>

@@ -14,9 +14,12 @@
 	<body>
 		<jsp:include page="header.jsp"></jsp:include>
 		
-		<main class="mt-5 main">
+		<main class="main">
 			<section>
-				<div class="container">
+				<div class="hero_img">
+					<img src="/images/petsHero.jpg" alt="">
+				</div>
+				<div class="mt-5 mb-5 container">
 					<div class="row no-gutters">
 						<c:forEach var="ele" items="${listaFamilias }" >
 							<div class="col-sm-6 col-lg-4 mb-2 interior">

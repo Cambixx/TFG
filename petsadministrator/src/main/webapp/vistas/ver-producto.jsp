@@ -28,7 +28,7 @@
 				</div>
 				
 				<div class="col-lg-6 col-12">
-					<div class="text-end mb-3"><span class="tag">${producto.familia.nombre}</span></div>
+					<div class="text-end mb-3"><span class="tag">${producto.tamano.nombre}</span></div>
 						<h2 class="mb-5">${producto.nombre }</h2>
 	
 						<p class="mb-5">${producto.descripcion }</p>

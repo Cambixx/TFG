@@ -26,13 +26,13 @@ public class ProductoServiceImpl implements ProductoService{
 	public Producto buscarUno(int idProducto) {
 		return prepo.findById(idProducto).orElse(null);
 	}
-	/*
+	
 	// Lista de los productos segun su familia/consola
 	@Override
-	public List<Producto> findByConsole(String consola) {
-		return prepo.findByConsole(consola);
+	public List<Producto> findByTamano(String tamano) {
+		return prepo.findByTamano(tamano);
 	}
-*/
+
 	// Ordenación de productos
 	@Override
 	public List<Producto> OrderByPriceAsc() {
