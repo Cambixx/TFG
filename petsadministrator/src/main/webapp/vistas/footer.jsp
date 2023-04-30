@@ -16,9 +16,6 @@
 	      <div class="row px-5">
 	        <div class="col-md-5 mb-3">
 	            <a class="navbar-brand" href="#"><img class="logo-img" src="/images/logo_pets_nobg.png"></a>
-	            <p class="mt-3">
-	              Somos el Grupo 14 de la asignatura de Desarrollo Web en Entorno Servidor
-	            </p>
 	        </div>
 	        <div class="col-6 col-md-2 mb-3">
 	          <h6 class="text-uppercase fw-bold mb-4">Páginas</h6>
@@ -56,7 +53,7 @@
 	      </div>
 	  
 	      <div class="d-flex flex-column flex-sm-row justify-content-between px-5 pt-4 mt-4 border-top">
-	        <p>© 2023 GameStore, Inc. All rights reserved.</p>
+	        <p>© 2023 PetsAdministrator, Inc. All rights reserved.</p>
 	        <ul class="list-unstyled d-flex">
 	          <li class="me-3"><a class="link-dark" href="#"><i class="bi bi-facebook"></i></a></li>
 	          <li class="me-3"><a class="link-dark" href="#"><i class="bi bi-twitter"></i></a></li>

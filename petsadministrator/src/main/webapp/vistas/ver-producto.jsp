@@ -37,7 +37,7 @@
 						<h5 class="text-end">Stock disponible: ${producto.stock } unidades.</h5>
 					<div class="text-end mt-5">
 					
-					<form action="/cesta/addCesta/${producto.idProducto}" method="post">
+					<form action="/cesta/addCesta/${producto.idProductos}" method="post">
 						<div class="row">
 							<div class="form-floating col-6">
 								<input type="number" min="1" max="20" class="form-control" id="cantidad" name="cantidad" placeholder="Cantidad" required>

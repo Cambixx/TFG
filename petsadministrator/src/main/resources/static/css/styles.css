@@ -1,28 +1,28 @@
 /*  GENERAL  */
 
 a:hover{
-    color: #9E005D !important;
+    color: #ECA62C !important;
 }
 
 .btn-primary{
-    background-color: #9E005D !important;
-    border-color: #9E005D !important;
+    background-color: #ECA62C !important;
+    border-color: #ECA62C !important;
 }
 
 .btn-primary:active, 
 .btn-primary:hover{
-    background-color: #6f0442 !important;
+    background-color: #bd8523 !important;
     color: #fff !important;
 }
 
 .btn-outline-primary{
-    border-color: #9E005D !important;
-    color: #9E005D !important;
+    border-color: #ECA62C !important;
+    color: #ECA62C !important;
 }
 
 .btn-outline-primary:active, 
 .btn-outline-primary:hover{
-    background-color: #9E005D !important;
+    background-color: #ECA62C !important;
     color: #fff !important;
 }
 
@@ -40,7 +40,7 @@ footer .nav-link{
 }
 
 footer a:hover{
-    color: #9E005D !important;
+    color: #ECA62C !important;
 }
 
 .dropdown-toggle::after{
@@ -48,7 +48,7 @@ footer a:hover{
 }
 
 .dropdown-item:active{
-	background-color: #9E005D !important;
+	background-color: #ECA62C !important;
 	color: #fff !important;
 }
 
@@ -81,7 +81,7 @@ nav .nav-link{
 
 .form-control:focus{
     box-shadow: none !important;
-    border-color: #d073a9 !important;
+    border-color: #f6d396 !important;
 }
 
 
@@ -151,7 +151,7 @@ nav .nav-link{
 /*  FICHA DE PRODUCTO  */
 
 .tag{
-	background-color: #9E005D;
+	background-color: #ECA62C;
 	padding: 0.75rem;
 	color: #fff;
 }
@@ -166,7 +166,7 @@ nav .nav-link{
 	font-size: 9rem;
 }
 
-/*  FAMILIAS  */
+/*  TAMAÑOS  */
 
 .filtering {
     margin-bottom: 40px;
@@ -264,7 +264,7 @@ nav .nav-link{
     font-weight: 800;
 }
 .portfolio-wrapper:hover .portfolio-overlay {
-    background-color: rgba(158, 0, 93, 0.85);
+    background-color: rgba(236, 165, 44, 0.714);
 }
 .portfolio-wrapper:hover .portfolio-overlay:before {
     opacity: 1;

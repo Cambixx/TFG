@@ -54,10 +54,10 @@
 						<td class="align-middle">${ele.tamano.nombre }</td>
 						<td class="align-middle text-center">${ele.precio } €</td>
 						<td class="align-middle text-center">
-							<a href="/ver-producto/${ele.idProducto}" class="btn btn-outline-primary me-3">Ver</a>
+							<a href="/ver-producto/${ele.idProductos}" class="btn btn-outline-primary me-3">Ver</a>
 							<sec:authorize access="hasAnyAuthority('Admin')">
-								<a href="/editar-producto/${ele.idProducto}" class="btn btn-outline-primary me-3">Editar</a>
-								<a href="/borrar-producto/${ele.idProducto}" class="btn btn-primary me-3"><i class="bi bi-trash3"></i></a>
+								<a href="/editar-producto/${ele.idProductos}" class="btn btn-outline-primary me-3">Editar</a>
+								<a href="/borrar-producto/${ele.idProductos}" class="btn btn-primary me-3"><i class="bi bi-trash3"></i></a>
 							</sec:authorize>
 						</td>
 					</tr>
