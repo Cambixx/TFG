@@ -80,7 +80,7 @@
 						</ul>
 					</li>
 				</sec:authorize>
-				<li><a href="/" class="nav-link px-2 text-black">Contacto</a></li>
+				<li><a href="/contacto" class="nav-link px-2 text-black">Contacto</a></li>
 			</ul>
 	    </nav>
 	</body>

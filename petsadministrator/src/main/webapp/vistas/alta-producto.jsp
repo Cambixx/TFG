@@ -43,11 +43,11 @@
 					<label class="small mb-1" for="imagen">Imagen</label>
 				</div>
 				
-				<label for="familia">Consola:</label><br>
+				<label for="familia">Tamaño:</label><br>
 				<select class="form-select mb-3" name="familia" required>
-					<option selected>Selecciona una consola</option>
+					<option selected>Selecciona una tamaño</option>
 					<c:forEach var="ele" items="${listaFamilias }">
-						<option value="${ele.idFamilias}">${ele.nombre}</option>
+						<option value="${ele.idTamanos}">${ele.nombre}</option>
 					</c:forEach>
 				</select>
 				

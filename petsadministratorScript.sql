@@ -96,9 +96,9 @@ CREATE TABLE productos_en_pedido (
   foreign key(id_producto) references productos(id_productos)
 );
 
-CREATE USER petsadministrator IDENTIFIED BY 'petsadministrator';
-grant all privileges on petsadministrator.* to petsadministrator; 
-FLUSH PRIVILEGES;
+-- CREATE USER petsadministrator IDENTIFIED BY 'petsadministrator';
+-- grant all privileges on petsadministrator.* to petsadministrator; 
+-- FLUSH PRIVILEGES;
 
 -- INSERTAR ROLES
 

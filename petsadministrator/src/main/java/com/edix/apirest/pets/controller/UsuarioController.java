@@ -45,7 +45,7 @@ public class UsuarioController {
 	
 	// Mostrar datos personales del Usuario
 	@GetMapping("/datos-personales/{id}")
-	public String datosUsuario(Model model, @PathVariable(name="id") int  idUsuario) {
+	public String datosUsuario(Model model, @PathVariable(name="id") int idUsuario) {
 		Usuario user = userv.findById(idUsuario);
 		model.addAttribute("datosUsuario", user);
 				

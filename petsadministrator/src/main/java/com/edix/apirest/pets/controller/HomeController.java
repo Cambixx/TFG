@@ -35,6 +35,12 @@ public class HomeController {
 	public String inicioLogin(Authentication aut, Tamano tamano, HttpSession misesion) {
 		List<Tamano> lista = tserv.todosTamanos();
 		misesion.setAttribute("listaFamilias", lista);
+		
+		String username = aut.getName();
+		Usuario user = userv.buscarUsuario(username);
+		
+		if (misesion.getAttribute("usuario") == null)
+			misesion.setAttribute("usuario", user);
 
 		return "inicio";
 	}
@@ -43,6 +49,12 @@ public class HomeController {
 	@GetMapping("/sobre-nosotros")
 	public String sobreNosotros() {
 		return "sobre-nosotros";
+	}
+	
+	// Página contacto
+	@GetMapping("/contacto")
+	public String contacto() {
+		return "contacto";
 	}
 	
 	//Guardar el usuario en sesión después de loguearse

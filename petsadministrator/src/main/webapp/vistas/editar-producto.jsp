@@ -19,7 +19,7 @@
 	
 		<main class="mt-5 container">
 			<div class="container">${mensaje }</div>				
-			<form action="/editar-producto/${producto.idProducto }" method="post">
+			<form action="/editar-producto/${producto.idProductos }" method="post">
 				<div class="form-floating mb-3">
 					<input class="form-control" id="nombre" name="nombre" type="text" placeholder="Nombre" value="${producto.nombre}">
 					<label class="small mb-1" for="nombre">Nombre</label>
@@ -42,11 +42,11 @@
 					<label class="small mb-1" for="imagen">Imagen</label>
 				</div>
 				
-				<label for="familia">Consola:</label><br>
-				<select class="form-select mb-3" name="familia" required>
+				<label for="tamano">Tamaño:</label><br>
+				<select class="form-select mb-3" name="tamano" required>
 					<!--  <option selected>Selecciona una consola</option>-->
 					<c:forEach var="ele" items="${listaFamilias }">
-						<option value="${ele.idFamilias}">${ele.nombre}</option>
+						<option value="${ele.idTamanos}">${ele.nombre}</option>
 					</c:forEach>
 				</select>
 				<br>

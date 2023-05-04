@@ -13,7 +13,7 @@ public interface ProductoService {
 	// Buscar un producto por su ID
 	Producto buscarUno(int idProducto);
 	
-	// Lista de los productos segun su familia/consola
+	// Lista de los productos segun su tamaño
 	List<Producto> findByTamano(String tamano);
 	
 	// Ordenación de productos

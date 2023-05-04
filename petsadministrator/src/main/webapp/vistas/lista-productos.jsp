@@ -43,7 +43,7 @@
 			<table class="table table-striped table-sm " >
 				<th class="text-center text-uppercase">Imagen</th>
 				<th class="text-uppercase">Nombre</th>
-				<th class="text-uppercase">Plataforma</th>
+				<th class="text-uppercase">Tamaño</th>
 				<th class="text-center text-uppercase">Precio</th>
 				<th class="text-center text-uppercase">Opciones</th>
 				

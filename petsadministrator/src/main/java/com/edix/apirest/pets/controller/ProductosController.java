@@ -120,8 +120,8 @@ public class ProductosController {
 	
 	// Página para editar el producto
 	@GetMapping("/editar-producto/{id}")
-	public String enviarFormularioEditar(Model model, @PathVariable(name="id") int idProducto) {
-		model.addAttribute("producto", pserv.buscarUno(idProducto));
+	public String enviarFormularioEditar(Model model, @PathVariable(name="id") int idProductos) {
+		model.addAttribute("producto", pserv.buscarUno(idProductos));
 		
 		List<Tamano> lista = tserv.todosTamanos();
 		model.addAttribute("listaFamilias", lista);
@@ -131,14 +131,14 @@ public class ProductosController {
 	
 	// Formulario para editar el producto
 	@PostMapping("/editar-producto/{id}")
-	public String procesarFormularioEditar(Model model,Producto producto,  @PathVariable(name="id") int  idProducto ) {
+	public String procesarFormularioEditar(Model model,Producto producto,  @PathVariable(name="id") int idProductos ) {
 				
-		if (pserv.buscarUno(idProducto) == null){
+		if (pserv.buscarUno(idProductos) == null){
 			model.addAttribute("mensaje", "<div class=\"alert alert-warning\" role=\"alert\">\r\n"
 				+ "  El producto no existe\r\n"
 				+ "</div>");
 		}else{
-			producto.setIdProductos(idProducto);
+			producto.setIdProductos(idProductos);
 			if (pserv.modificarProducto(producto) == 1) {
 				model.addAttribute("mensaje", "<div class=\"alert alert-success\" role=\"alert\">\r\n"
 					+ "  Producto editado con éxito\r\n"

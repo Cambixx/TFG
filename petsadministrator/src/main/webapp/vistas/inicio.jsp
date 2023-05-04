@@ -26,7 +26,7 @@
 								<div class="portfolio-wrapper">
 									<a class="popimg ml-0" href="/lista-productos/${ele.nombre }">	
 										<div class="portfolio-image text-center">
-											<img src="/images/consolas/${ele.imagen }" alt="${ele.nombre }" />
+											<img src="/images/tamanos/${ele.imagen }" alt="${ele.nombre }" />
 										</div>
 										<div class="portfolio-overlay">
 										
