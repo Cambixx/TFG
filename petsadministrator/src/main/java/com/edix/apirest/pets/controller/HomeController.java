@@ -28,7 +28,8 @@ public class HomeController {
 	
 	@Autowired
 	private TamanoService tserv;
-
+	
+	
 
 	// Página de inicio
 	@GetMapping("/")
@@ -36,11 +37,6 @@ public class HomeController {
 		List<Tamano> lista = tserv.todosTamanos();
 		misesion.setAttribute("listaFamilias", lista);
 		
-		String username = aut.getName();
-		Usuario user = userv.buscarUsuario(username);
-		
-		if (misesion.getAttribute("usuario") == null)
-			misesion.setAttribute("usuario", user);
 
 		return "inicio";
 	}

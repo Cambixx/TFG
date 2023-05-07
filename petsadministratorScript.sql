@@ -111,8 +111,8 @@ INSERT INTO usuarios VALUES(1, 'María', 'Pérez', 'Pérez', '1993-04-07', 'mper
 INSERT INTO usuarios VALUES(2, 'Juan', 'Gómez', 'López', '1963-03-17', 'jgomez@gmail.com', 'jgomez','$2a$10$aMS69IPQGlbZYjxvcJuZGuVDvCS/qJh5JDjBajWbTvHns8DfT7tMO', 1,'2023-01-17', 2); 
 INSERT INTO usuarios VALUES(3, 'Daniel', 'Ruiz', 'Ortega', '1989-11-28', 'druiz@gmail.com', 'druiz','$2a$10$aMS69IPQGlbZYjxvcJuZGuVDvCS/qJh5JDjBajWbTvHns8DfT7tMO', 0,'2023-02-01', 2); 
 INSERT INTO usuarios VALUES(4, 'Laura', 'Barrio', 'Marín', '1980-09-15', 'lbarrio@gmail.com', 'lbarrio','$2a$10$aMS69IPQGlbZYjxvcJuZGuVDvCS/qJh5JDjBajWbTvHns8DfT7tMO', 1,'2023-01-22', 2); 
-INSERT INTO usuarios VALUES(5, 'Lidia', 'Díaz', 'Mendoza', '1991-04-07', 'ldiaz@gmail.com', 'ldiaz' ,'$2a$10$aMS69IPQGlbZYjxvcJuZGuVDvCS/qJh5JDjBajWbTvHns8DfT7tMO', 1,'2023-01-01', 1); 
-
+INSERT INTO usuarios VALUES(5, 'Sergio', 'Martinez', 'Rivera', '1991-04-07', 'sergio4884mr@gmail.com', 'smartinez' ,'$2a$10$aMS69IPQGlbZYjxvcJuZGuVDvCS/qJh5JDjBajWbTvHns8DfT7tMO', 1,'2023-01-01', 1); 
+INSERT INTO usuarios VALUES(6, 'Carlos', 'Rábago', 'Torcates', '1990-09-15', 'carlosmiguel40@gmail.com', 'crabago','$2a$10$aMS69IPQGlbZYjxvcJuZGuVDvCS/qJh5JDjBajWbTvHns8DfT7tMO', 1,'2023-01-22', 2); 
 -- INSERTAR TARJETAS
 
 INSERT INTO tarjetas VALUES(1, 1544615, 'María Pérez Pérez', '2023-04-07', 485);
