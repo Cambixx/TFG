@@ -42,6 +42,7 @@
 							<div class="form-floating col-6">
 								<input type="number" min="1" max="20" class="form-control" id="cantidad" name="cantidad" placeholder="Cantidad" required>
 								<label for="cantidad">Cantidad</label> 
+								<p>${alertastock }</p>
 							</div>
 							<div class="col-6">
 								<input class="btn btn-primary" type="submit" value="Añadir">

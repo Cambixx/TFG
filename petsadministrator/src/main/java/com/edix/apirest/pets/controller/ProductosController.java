@@ -37,9 +37,16 @@ public class ProductosController {
 
 	// Ver detalles de un produto
 	@GetMapping("/ver-producto/{id}")
-	public String verUno(Model model, @PathVariable(name="id") int  idProducto) {
+	public String verUno(RedirectAttributes ratt, Model model, @PathVariable(name="id") int  idProducto) {
 		Producto producto = pserv.buscarUno(idProducto);
 		model.addAttribute("producto", producto);
+		
+		if (producto.getStock() < 5)
+				
+			model.addAttribute("alertastock", "<div class=\"alert alert-success\" role=\"alert\">\r\n"
+					+ "Hay poco stock\r\n"
+					+ "</div>");
+		
 		
 		return "ver-producto";
 	}
