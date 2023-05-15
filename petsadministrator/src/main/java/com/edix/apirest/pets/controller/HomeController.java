@@ -2,13 +2,18 @@ package com.edix.apirest.pets.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
 
 import com.edix.apirest.pets.entities.Tamano;
 import com.edix.apirest.pets.entities.Rol;
@@ -81,6 +86,21 @@ public class HomeController {
 		model.addAttribute("listaUsuarios", lista);
 		
 		return "lista-usuarios";
+	}
+	
+	@GetMapping("/logout")
+	public String cerrarSesion(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+	    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+	    if (authentication != null) {
+	        new SecurityContextLogoutHandler().logout(request, response, authentication);
+	    }
+	    
+	   
+		
+	    session.removeAttribute("usuario"); 
+	    session.invalidate();
+	    
+	    return "redirect:/"; // Redirecciona a la página de inicio u otra página después de cerrar sesión
 	}
 
 	

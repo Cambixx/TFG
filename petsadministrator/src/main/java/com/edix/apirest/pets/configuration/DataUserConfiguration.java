@@ -51,6 +51,7 @@ public class DataUserConfiguration extends WebSecurityConfigurerAdapter{
 			.anyRequest().authenticated()
 			// El formulario de Login no requiere autenticacion
 			.and().formLogin().permitAll()
+			.and().logout().permitAll().logoutSuccessUrl("/")
 			//.and().formLogin().loginPage("/login").permitAll()
 			// El formulario de logout no requiere autenticacion
 			
