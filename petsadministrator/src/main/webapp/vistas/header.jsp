@@ -69,7 +69,7 @@
 					<li><a href="/lista-usuarios" class="nav-link px-2 text-black">Usuarios</a></li>
 				</sec:authorize>
 				
-				<sec:authorize access="isAuthenticated()">
+				<sec:authorize access="hasAuthority('Cliente')">
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Mi cuenta</a>
 						<ul class="dropdown-menu">
