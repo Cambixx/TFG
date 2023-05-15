@@ -70,7 +70,7 @@ public class ProductosController {
 	}
 
 	
-	// Mostrar Productos por tipo de consola (Familia)
+	// Mostrar Productos por tamaño
 	@GetMapping("/lista-productos/{tamano}")
 	public String verProductosConsola(Model model, @PathVariable(name="tamano") String tamano) {
 		List<Producto> lista = pserv.findByTamano(tamano);
@@ -116,6 +116,7 @@ public class ProductosController {
 	// Formulario para crear un producto nuevo
 	@PostMapping("/alta-producto")
 	public String procesarFormulario(RedirectAttributes ratt, Model model,Producto producto ) {
+		System.out.println(producto);
 		pserv.insertarProducto(producto);
 		
 		ratt.addFlashAttribute("mensaje", "<div class=\"alert alert-success\" role=\"alert\">\r\n"

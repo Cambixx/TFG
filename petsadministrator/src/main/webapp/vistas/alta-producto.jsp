@@ -44,7 +44,7 @@
 				</div>
 				
 				<label for="familia">Tamaño:</label><br>
-				<select class="form-select mb-3" name="familia" required>
+				<select class="form-select mb-3" name="tamano" required>
 					<option selected>Selecciona una tamaño</option>
 					<c:forEach var="ele" items="${listaFamilias }">
 						<option value="${ele.idTamanos}">${ele.nombre}</option>
@@ -52,6 +52,7 @@
 				</select>
 				
 				<div class="text-end mt-5">
+					<a class="btn btn-outline-primary me-3" href="/lista-productos">Volver</a>
 					<input class="btn btn-primary" type="submit" value="Guardar">
 				</div>                       
 			</form>		

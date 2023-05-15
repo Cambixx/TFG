@@ -44,7 +44,6 @@
 				
 				<label for="tamano">Tamaño:</label><br>
 				<select class="form-select mb-3" name="tamano" required>
-					<!--  <option selected>Selecciona una consola</option>-->
 					<c:forEach var="ele" items="${listaFamilias }">
 						<option value="${ele.idTamanos}">${ele.nombre}</option>
 					</c:forEach>
