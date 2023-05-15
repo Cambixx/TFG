@@ -18,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.edix.apirest.pets.entities.Tarjeta;
 import com.edix.apirest.pets.entities.Usuario;
+import com.edix.apirest.pets.repository.TarjetaRepository;
 import com.edix.apirest.pets.repository.UsuarioRepository;
 import com.edix.apirest.pets.service.TarjetaService;
 import com.edix.apirest.pets.service.UsuarioService;
@@ -35,6 +36,9 @@ public class TarjetasController {
 	@Autowired
 	private UsuarioRepository urepo;
 	
+	@Autowired
+	private TarjetaRepository trepo;
+	
 	// Ir al formulario para añadir tarjeta del Usuario
 	@GetMapping("/alta-tarjeta/{id}")
 	public String altaTarjeta(Model model, @PathVariable(name="id") int  idUsuario) {
@@ -49,6 +53,7 @@ public class TarjetasController {
 	public String altaTarjeta(RedirectAttributes ratt, Tarjeta tarjeta, @PathVariable(name="id") int  idUsuario) {
 		Usuario user = userv.findById(idUsuario);
 		
+		trepo.save(tarjeta);
 		user.addTarjeta(tarjeta);
 		urepo.save(user);
 		
