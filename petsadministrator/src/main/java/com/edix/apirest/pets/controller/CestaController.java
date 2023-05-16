@@ -21,6 +21,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.edix.apirest.pets.dtos.LineaPedidoDto;
 import com.edix.apirest.pets.entities.Direccion;
 import com.edix.apirest.pets.entities.Pedido;
+import com.edix.apirest.pets.entities.Producto;
 import com.edix.apirest.pets.entities.ProductosEnPedido;
 import com.edix.apirest.pets.entities.Tarjeta;
 import com.edix.apirest.pets.entities.Usuario;
@@ -109,14 +110,16 @@ public class CestaController {
 	}
 	
 	// Formulario para procesar el pedido, el usuario, la dirección y la tarjeta 
-	@PostMapping("/comprar")
-	public String comprarPost(RedirectAttributes ratt, Model model, HttpSession sesion, Direccion direccion, Tarjeta tarjeta) {
+	/*@PostMapping("/comprar")
+	public String comprarPost(RedirectAttributes ratt, Model model, HttpSession sesion, Direccion direccion, Tarjeta tarjeta,  LineaPedidoDto linea) {
 		List<LineaPedidoDto> lista = (List<LineaPedidoDto>)sesion.getAttribute("cesta");
 		
 		for (LineaPedidoDto ele: lista) {
 			System.out.println("Linea de la compra: " + ele);
 			
 		}
+		
+		
 		System.out.println("Lista => " + lista);
 		Pedido p = new Pedido();
 
@@ -156,5 +159,57 @@ public class CestaController {
 		
 		return "redirect:/lista-productos";
 	}
-	
+*/
+	@PostMapping("/comprar")
+	public String comprarPost(RedirectAttributes ratt, Model model, HttpSession sesion, Direccion direccion, Tarjeta tarjeta, LineaPedidoDto linea) {
+	    List<LineaPedidoDto> lista = (List<LineaPedidoDto>) sesion.getAttribute("cesta");
+
+	    for (LineaPedidoDto ele : lista) {
+	        System.out.println("Linea de la compra: " + ele);
+	    }
+
+	    System.out.println("Lista => " + lista);
+	    Pedido p = new Pedido();
+
+	    p.setDireccion(direccion);
+	    p.setTarjeta(tarjeta);
+
+	    // p.setEstado("Terminado");
+	    p.setFechaRealizacion(new Date());
+	    Usuario user = (Usuario) sesion.getAttribute("userCompra");
+	    p.setUsuario(user);
+
+	    List<ProductosEnPedido> listaLP = new ArrayList<>();
+
+	    for (LineaPedidoDto ele : lista) {
+	        ProductosEnPedido pep = new ProductosEnPedido();
+	        pep.setCantidad(ele.getCantidad());
+	        pep.setPedido(p);
+	        Producto producto = prepo.findById(ele.getIdProducto()).orElse(null);
+	        pep.setProducto(producto);
+	        pep.setPrecio(BigDecimal.valueOf(ele.getPrecioVenta()));
+	        System.out.println("Linea de pedido: " + pep);
+	        listaLP.add(pep);
+
+	        // Restar cantidad del stock
+	        int cantidadComprada = ele.getCantidad();
+	        int stockActual = producto.getStock();
+	        producto.setStock(stockActual - cantidadComprada);
+	        prepo.save(producto);
+	    }
+
+	    for (int i = 0; i < listaLP.size(); i++) {
+	        System.out.println("Elemento " + i + ": " + listaLP.get(i));
+	    }
+
+	    System.out.println(p);
+	    pserv.altaPedido(p, "Terminado");
+
+	    sesion.setAttribute("cesta", null);
+
+	    ratt.addFlashAttribute("mensaje", "<div class=\"alert alert-success\" role=\"alert\">\r\n"
+	            + "  Compra realizada con éxito :) \r\n" + "</div>");
+
+	    return "redirect:/lista-productos";
+	}
 }
