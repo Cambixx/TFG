@@ -37,18 +37,36 @@
 						<h5 class="text-end">Stock disponible: ${producto.stock } unidades.</h5>
 					<div class="text-end mt-5">
 					
-					<form action="/cesta/addCesta/${producto.idProductos}" method="post">
+					<form action="/cesta/addCesta/${producto.idProductos}" method="post" onsubmit="return validarCantidad()">
 						<div class="row">
 							<div class="form-floating col-6">
-								<input type="number" min="1" max="20" class="form-control" id="cantidad" name="cantidad" placeholder="Cantidad" required>
+								<input type="number" min="1" max="200" class="form-control" id="cantidad" name="cantidad" placeholder="Cantidad" required>
 								<label for="cantidad">Cantidad</label> 
-								<p>${alertastock }</p>
+								<p>${pocostock }</p>
+								<p id="mensajeStock">${alertastock}</p>
 							</div>
 							<div class="col-6">
 								<input class="btn btn-primary" type="submit" value="Añadir">
 							</div> 
 						</div>
 					</form>
+					<script>
+    					function validarCantidad() {
+       					 var cantidadInput = document.getElementById('cantidad');
+       					 var mensajeStock = document.getElementById('mensajeStock');
+
+       					 var cantidad = parseInt(cantidadInput.value);
+       					 var stockDisponible = ${producto.stock}; // Reemplaza esto con la variable que contiene el stock disponible
+
+       					 if (cantidad > stockDisponible) {
+          				  mensajeStock.textContent = 'No hay suficiente stock disponible.';
+       				     return false; // Evita enviar el formulario
+     						   } else {
+          				  mensajeStock.textContent = ''; // Borra el mensaje de alerta
+           				 return true; // Permite enviar el formulario
+        					}
+    					}
+					</script>
 					
 					</div>
 					

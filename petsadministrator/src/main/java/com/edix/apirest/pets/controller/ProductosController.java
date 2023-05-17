@@ -43,7 +43,7 @@ public class ProductosController {
 		
 		if (producto.getStock() < 5)
 				
-			model.addAttribute("alertastock", "<div class=\"alert alert-success\" role=\"alert\">\r\n"
+			model.addAttribute("pocostock", "<div class=\"alert alert-success\" role=\"alert\">\r\n"
 					+ "Hay poco stock\r\n"
 					+ "</div>");
 		
