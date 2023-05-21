@@ -19,7 +19,7 @@
 		<div class="container">${mensaje }</div>
 			<form action="/alta-tarjeta/${usuario.idUsuario}" method="post">
 				<div class="form-floating mb-3">
-					<input class="form-control" id="numero" name="numero" type="text" placeholder="Numero" required>
+					<input class="form-control" id="numero" name="numero" type="number" placeholder="Numero" required>
 					<label class="small mb-1" for="numero">Numero</label>
 				</div>
 				<div class="form-floating mb-3">
