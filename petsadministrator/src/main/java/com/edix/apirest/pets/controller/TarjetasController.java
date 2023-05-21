@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.edix.apirest.pets.entities.Rol;
 import com.edix.apirest.pets.entities.Tarjeta;
 import com.edix.apirest.pets.entities.Usuario;
 import com.edix.apirest.pets.repository.TarjetaRepository;
@@ -84,8 +85,8 @@ public class TarjetasController {
 		
 		return "lista-tarjetas";
 	}
-	
-	// Página para ditar una tarjeta
+	/*
+	// Página para editar una tarjeta
 	@GetMapping("/editar-tarjeta/{id}")
 	public String enviarFormularioEditar(Model model, @PathVariable("id") int idTarjeta) {
 		model.addAttribute("tarjeta", tserv.buscarTarjeta(idTarjeta));
@@ -120,9 +121,42 @@ public class TarjetasController {
 		List<Tarjeta> tarjetas = tserv.tarjetasUsuario(user.getIdUsuario());
 		model.addAttribute("tarjetasUsuario", tarjetas);
 		
-		return "lista-tarjetas";
+		return "redirect:/lista-tarjetas/{id}";
 	}
+	*/
 	
+	// Ir al formulario para editar la tarjeta
+		@GetMapping("/editar-tarjeta/{id}")
+		public String editarTarjeta(Model model, @PathVariable(name="id") int  idTarjeta) {
+			Tarjeta tarjeta = tserv.buscarTarjeta(idTarjeta);
+			model.addAttribute("tarjetaElegida", tarjeta);
+				
+			return "editar-tarjeta";
+		}
+		
+		// Formulario para editar la tarjeta
+		@PostMapping("/editar-tarjeta/{id}")
+		public String procesarCambioTarjeta(RedirectAttributes ratt, Tarjeta tarjeta, @PathVariable(name="id") int  idTarjeta) {
+				
+			if(tserv.buscarTarjeta(idTarjeta) == null) {
+				ratt.addFlashAttribute("mensaje", "<div class=\"alert alert-warning\" role=\"alert\">\r\n"
+					+ "  La tarjeta no existe\r\n"
+					+ "</div>");
+			}else {
+				tarjeta.setIdTarjeta(idTarjeta);
+				if (tserv.modificarTarjeta(tarjeta) == 1) {
+					ratt.addFlashAttribute("mensaje", "<div class=\"alert alert-success\" role=\"alert\">\r\n"
+						+ "  Tarjeta modificada con éxito\r\n"
+						+ "</div>");
+				}else {
+					ratt.addFlashAttribute("mensaje", "<div class=\"alert alert-warning\" role=\"alert\">\r\n"
+						+ "  Tarjeta no modificada\r\n"
+						+ "</div>");
+				}
+			}
+				
+			return "redirect:/lista-tarjetas/{id}";
+		}
 	// Formatear la fecha para el formulario
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
@@ -130,6 +164,6 @@ public class TarjetasController {
 		sdf.setLenient(false);
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(sdf, false));
 	}
-
+	
 }
 

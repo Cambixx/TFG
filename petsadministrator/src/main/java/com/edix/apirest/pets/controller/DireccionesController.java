@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.edix.apirest.pets.entities.Direccion;
+import com.edix.apirest.pets.entities.Tarjeta;
 import com.edix.apirest.pets.entities.Usuario;
 import com.edix.apirest.pets.repository.UsuarioRepository;
 import com.edix.apirest.pets.service.DireccionService;
@@ -28,6 +29,8 @@ public class DireccionesController {
 	
 	@Autowired
 	private UsuarioRepository urepo;
+	
+	
 	
 	// Ir al formulario para añadir direccion del Usuario
 	@GetMapping("/alta-direccion/{id}")
@@ -73,7 +76,9 @@ public class DireccionesController {
 			
 		return "lista-direcciones";
 	}
-		
+	/*
+	 	
+	 
 	// Página para ditar una dirección
 	@GetMapping("/editar-direccion/{id}")
 	public String enviarFormularioEditar(Model model, @PathVariable("id") int idDireccion) {
@@ -112,4 +117,38 @@ public class DireccionesController {
 		return "lista-direcciones";
 	}
 	
+	*/
+	
+	// Ir al formulario para editar la direccion
+			@GetMapping("/editar-direccion/{id}")
+			public String editarTarjeta(Model model, @PathVariable(name="id") int  idDireccion) {
+				Direccion direccion = dserv.buscarDireccion(idDireccion);
+				model.addAttribute("direccionElegida", direccion);
+					
+				return "editar-direccion";
+			}
+			
+			// Formulario para editar la direccion
+			@PostMapping("/editar-direccion/{id}")
+			public String procesarCambioTarjeta(RedirectAttributes ratt, Direccion direccion, @PathVariable(name="id") int  idDireccion) {
+					
+				if(dserv.buscarDireccion(idDireccion) == null) {
+					ratt.addFlashAttribute("mensaje", "<div class=\"alert alert-warning\" role=\"alert\">\r\n"
+						+ "  La direccion no existe\r\n"
+						+ "</div>");
+				}else {
+					direccion.setIdDireccion(idDireccion);
+					if (dserv.modificarDireccion(direccion) == 1) {
+						ratt.addFlashAttribute("mensaje", "<div class=\"alert alert-success\" role=\"alert\">\r\n"
+							+ "  Dirección modificada con éxito\r\n"
+							+ "</div>");
+					}else {
+						ratt.addFlashAttribute("mensaje", "<div class=\"alert alert-warning\" role=\"alert\">\r\n"
+							+ "  Dirección no modificada\r\n"
+							+ "</div>");
+					}
+				}
+					
+				return "redirect:/lista-direcciones/{id}";
+			}	
 }
