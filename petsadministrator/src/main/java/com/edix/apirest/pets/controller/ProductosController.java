@@ -35,7 +35,7 @@ public class ProductosController {
 		return "lista-productos";
 	}
 
-	// Ver detalles de un produto
+	// Ver detalles de un produto y formulario para añadir a cesta y añadir stock
 	@GetMapping("/ver-producto/{id}")
 	public String verUno(RedirectAttributes ratt, Model model, @PathVariable(name="id") int  idProducto) {
 		Producto producto = pserv.buscarUno(idProducto);
@@ -160,5 +160,34 @@ public class ProductosController {
 		return "redirect:/lista-productos";
 		
 	}
+	
+	
+	// AÑADIR STOCK
+	@PostMapping("/addStock/{id}")
+	public String procesarFormularioStock(Model model, @PathVariable(name = "id") int idProductos, @RequestParam(name = "stock") int stock) {
+	    Producto productoExistente = pserv.buscarUno(idProductos);
+	    if (productoExistente == null) {
+	        model.addAttribute("mensaje", "<div class=\"alert alert-warning\" role=\"alert\">\r\n"
+	                + "  El producto no existe\r\n" + "</div>");
+	    } else {
+	        int stockActual = productoExistente.getStock();
+	        productoExistente.setStock(stockActual + stock);
+	        int resultado = pserv.modificarProducto(productoExistente);
+	        if (resultado == 1) {
+	            model.addAttribute("mensaje", "<div class=\"alert alert-success\" role=\"alert\">\r\n"
+	                    + "  Stock añadido con éxito\r\n" + "</div>");
+	        } else {
+	            model.addAttribute("mensaje", "<div class=\"alert alert-warning\" role=\"alert\">\r\n"
+	                    + "  No se pudo añadir stock al producto\r\n" + "</div>");
+	        }
+	    }
+	    // Actualizar la lista de productos
+	    List<Producto> listaProductos = pserv.todosProductos();
+	    model.addAttribute("listaProductos", listaProductos);
+	    
+	    return "redirect:/lista-productos"; 
+	}    
+	    
+	
 	
 }

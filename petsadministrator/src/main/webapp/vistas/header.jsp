@@ -40,13 +40,15 @@
 			          		<a href="/index" class="btn btn-outline-primary me-3">Iniciar sesión</a>
 			          		<a href="/registro" class="btn btn-primary me-3">Registrarse</a>
 			         	</sec:authorize>
-			          	<sec:authorize access="isAuthenticated()">
+			         	
+			          	<sec:authorize access="hasAuthority('Cliente')">
 			          		<a href="/logout" class="btn btn-outline-primary me-3">Cerrar sesión</a>
 			          		<a href="/cesta/comprar/${usuario.idUsuario }" class="btn btn-primary me-3"><i class="bi bi-cart2 me-2"></i> Carrito</a>
 			          	</sec:authorize>
-			          	<sec:authorize access="!isAuthenticated()">
-			          		<a href="/cesta/ver" class="btn btn-primary me-3"><i class="bi bi-cart2 me-2"></i> Carrito</a>
+			          	<sec:authorize access="hasAuthority('Admin')">
+			          		<a href="/logout" class="btn btn-outline-primary me-3">Cerrar sesión</a>
 			         	</sec:authorize>
+			         	
 			        </div>
 		    	</div>
 		    </div>
