@@ -23,7 +23,7 @@
 			<div class="row">
 				<div class="col-lg-6 col-12">
 					<div class="text-center">
-						<img class="img-portada" src="/images/portadas/${producto.imagen }">
+						<img class="img-portada" src="/images/productos/${producto.imagen }">
 					</div>
 				</div>
 				

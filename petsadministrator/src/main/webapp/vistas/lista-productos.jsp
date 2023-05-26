@@ -49,7 +49,7 @@
 				
 				<c:forEach var="ele" items="${listaProductos }" >
 					<tr>
-						<td class="align-middle text-center"><img class="img-portada-lista" src="/images/portadas/${ele.imagen }"></td>
+						<td class="align-middle text-center"><img class="img-portada-lista" src="/images/productos/${ele.imagen }"></td>
 						<td class="align-middle">${ele.nombre }</td>
 						<td class="align-middle">${ele.tamano.nombre }</td>
 						<td class="align-middle text-center">${ele.precio } €</td>
