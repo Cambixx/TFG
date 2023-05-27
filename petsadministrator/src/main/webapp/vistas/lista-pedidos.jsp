@@ -24,7 +24,6 @@
 				<th class="text-uppercase text-center">Fecha</th>
 				<th class="text-uppercase text-center">Dirección</th>
 				<th class="text-uppercase text-center">Tarjeta</th>
-				<th class="text-uppercase text-center">Total</th>
 				<th class="text-uppercase text-center"></th>
 				
 				<c:forEach var="ele" items="${pedidosUsuario }" >
@@ -35,7 +34,6 @@
 						<td class="align-middle text-center">${ele.fechaRealizacion }</td>
 						<td class="align-middle text-center">${ele.direccion.calle }, ${ele.direccion.letra }, ${ele.direccion.numero }</td>
 						<td class="align-middle text-center">${ele.tarjeta.numero }</td>
-						<td class="align-middle text-center"><a href="/ver-pedido/${ele.idPedido}" class="btn btn-primary me-3">Ver pedido</a></td>
 					</tr>
 				</c:forEach>
 			</table>

@@ -17,7 +17,7 @@ public class PedidosController {
 	@Autowired
 	private PedidoService pserv;
 	
-	// Ver el listado de productos
+	// Ver el listado de pedidos
 	@GetMapping("/lista-pedidos/{id}")
 	public String pedidosUsuario(Model model, @PathVariable(name="id") int  idUsuario) {
 		List<Pedido> pedidos = pserv.pedidosUsuario(idUsuario);
@@ -26,6 +26,7 @@ public class PedidosController {
 		return "lista-pedidos";
 	}
 	
+	/*
 	// Ver un pedido según su ID
 	@GetMapping("/ver-pedido/{id}")
 	public String verPedido(Model model, @PathVariable(name="id") int  idPedido) {
@@ -35,6 +36,6 @@ public class PedidosController {
 		
 		return "ver-pedido";
 	}
-	
+	*/
 	
 }
