@@ -155,7 +155,7 @@ public class TarjetasController {
 				}
 			}
 				
-			return "redirect:/lista-tarjetas/{id}";
+			return "redirect:/";
 		}
 	// Formatear la fecha para el formulario
 	@InitBinder

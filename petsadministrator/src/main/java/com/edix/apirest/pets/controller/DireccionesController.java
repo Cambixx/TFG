@@ -149,6 +149,6 @@ public class DireccionesController {
 					}
 				}
 					
-				return "redirect:/lista-direcciones/{id}";
+				return "redirect:/";
 			}	
 }

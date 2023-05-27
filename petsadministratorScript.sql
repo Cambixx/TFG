@@ -150,7 +150,23 @@ INSERT INTO productos VALUES(7, 'Abrigo Granate', 'abrigo_granate.jpg', 'A veces
 INSERT INTO productos VALUES(8, 'Jersey geometrico', 'jersey_geometrico.jpg',  'Si buscas una prenda que abrigue a tu perro cuando salga a la calle y que a la vez respete el medio ambiente, entonces necesitas el jersey Nayeco Ecoline Geometric, fabricado con materiales reciclados y disponible en varias tallas.', 12.99, 45, 2);
 INSERT INTO productos VALUES(9, 'Chubasquero Disney Minnie', 'chubasquero_disney.jpg', 'Minnie es una de las ratoncitas más coquetas y presumidas de la cultura pop, así que este impermeable para perros con diseño de la novia de Mickey Mouse es una necesidad si quieres que tu amigo peludo se proteja de la lluvia sin dejar de llamar la atención.', 19.95, 45, 1);
 INSERT INTO productos VALUES(10, 'Chubasquero negro', 'chubasquero_negro.jpg', 'Outech presenta este chubasquero deportivo para perros de todas las razas, elaborado con materiales resistentes, impermeables y de gran calidad, ideales para las caminatas bajo la lluvia.', 9.95, 45, 3);
-
+INSERT INTO productos VALUES(11, 'Disfraz de Star wars', 'starwarsdog.jpg', 'Celebra con tu mascota el orgullo friki y vivid una experiencia galáctica', 39.99, 15, 2);
+INSERT INTO productos VALUES(12, 'Pijama', 'pijama.jpg', 'Dormir mola mucho, pero dormir con estilo...', 7.65, 45, 3);
+INSERT INTO productos VALUES(13, 'Jurasic Dog', 'jurasic.jpg', 'Tu pequeño cachorro parecerá un temible dinosaurio', 19.99, 25, 1);
+INSERT INTO productos VALUES(14, 'Reno', 'navidad.jpg', 'Se acerca la navidad y alguien tiene que tirar del trineo. Digo yo...', 19.50, 17, 2);
+INSERT INTO productos VALUES(15, 'Reno', 'navidad.jpg', 'Se acerca la navidad y alguien tiene que tirar del trineo. Digo yo...', 19.50, 17, 3);
+INSERT INTO productos VALUES(16, 'Chubasquero Amarillo', 'chubasquero.jpg', 'Vivir en el norte tiene sus ventajas, pero el frio y la lluvia pueden ser molestos', 23.50, 63, 3);
+INSERT INTO productos VALUES(17, 'Chubasquero Amarillo', 'chubasquero.jpg', 'Vivir en el norte tiene sus ventajas, pero el frio y la lluvia pueden ser molestos', 23.50, 63, 2);
+INSERT INTO productos VALUES(18, 'Chubasquero Amarillo', 'chubasquero.jpg', 'Vivir en el norte tiene sus ventajas, pero el frio y la lluvia pueden ser molestos', 23.50, 63, 1);
+INSERT INTO productos VALUES(19, 'Dogman', 'batman.jpg', 'Protege Gotham, protege tu hogar pero sobre todo sus huesitos', 33.70, 15, 1);
+INSERT INTO productos VALUES(20, 'Dogman', 'batman.jpg', 'Protege Gotham, protege tu hogar pero sobre todo sus huesitos', 33.70, 15, 2);
+INSERT INTO productos VALUES(21, 'Spiderdog', 'spiderman.jpg', 'No lanza telarañas pero si ladridos. Tu amigo y vecino SpiderDog', 22.20, 45, 1);
+INSERT INTO productos VALUES(22, 'Spiderdog', 'spiderman.jpg', 'No lanza telarañas pero si ladridos. Tu amigo y vecino SpiderDog', 22.20, 45, 3);
+INSERT INTO productos VALUES(23, 'Hulk', 'hulk.jpg', 'LLegas a casa y ves que te ha destrozado el sofa, sus juguetes y a decorado los muebles de la casa a su manera con mordiscos. !Que esperabas Hulk destroza!', 32.15, 15, 1);
+INSERT INTO productos VALUES(24, 'Hulk', 'hulk.jpg', 'LLegas a casa y ves que te ha destrozado el sofa, sus juguetes y a decorado los muebles de la casa a su manera con mordiscos. !Que esperabas Hulk destroza!', 32.15, 15, 3);
+INSERT INTO productos VALUES(25, 'Hulk', 'hulk.jpg', 'LLegas a casa y ves que te ha destrozado el sofa, sus juguetes y a decorado los muebles de la casa a su manera con mordiscos. !Que esperabas Hulk destroza!', 32.15, 15, 2);
+INSERT INTO productos VALUES(26, 'Flash', 'flash.jpg', '¿Los demas amiguitos de tu querido perrito le quitan la pelota porque corren más que él? Solucionado ', 32.15, 15, 2);
+INSERT INTO productos VALUES(27, 'Flash', 'flash.jpg', '¿Los demas amiguitos de tu querido perrito le quitan la pelota porque corren más que él? Solucionado ', 32.15, 15, 1);
 -- USUARIOS CON DIRECCIONES
 
 INSERT INTO usuarios_con_direcciones VALUES(1, 1);
@@ -177,12 +193,3 @@ INSERT INTO usuarios_con_tarjetas VALUES(4, 7);
 INSERT INTO usuarios_con_tarjetas VALUES(5, 4);
 INSERT INTO usuarios_con_tarjetas VALUES(5, 5);
 
--- INSERTAR PEDIDOS
-
-INSERT INTO pedidos VALUES(1, '2023-01-07', 'Terminado', 1, 1, 3);
-INSERT INTO pedidos VALUES(2, '2023-01-07', 'Terminado', 5, 1, 3);
-
--- PRODUCTOS EN PEDIDO
-
-INSERT INTO productos_en_pedido VALUES(1, 1, 59.99, 1, 1);
-INSERT INTO productos_en_pedido VALUES(2, 1, 69.99, 1, 4);
