@@ -23,7 +23,7 @@
 				</div>
 				
 				<div class="text-end mt-5">
-				<a class="btn btn-outline-primary me-3" href="/lista-roles">Volver</a>
+					<a class="btn btn-outline-primary me-3" href="javascript:history.back()">Volver</a>
 					<input class="btn btn-primary" type="submit" value="Guardar">
 				</div>                       
 			</form>

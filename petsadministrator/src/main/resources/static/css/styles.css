@@ -1,5 +1,10 @@
 /*  GENERAL  */
 
+a, h3 {
+  text-decoration: none;
+  color: black;
+}
+
 a:hover{
     color: #ECA62C !important;
 }

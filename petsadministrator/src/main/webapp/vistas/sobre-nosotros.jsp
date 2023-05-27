@@ -23,12 +23,16 @@
 			<section class="container d-flex justify-content-center">
 					        
 		        <article class="nosotros">
-		            <img src="/images/crabago.jpg" class="nosotros-img">
-		            <h3 class="mt-5">Carlos Rábago</h3>
+		        	<a href="https://carlos-rabago.netlify.app/" target="_blank" rel="noopener noreferrer">
+			            <img src="/images/crabago.jpg" class="nosotros-img">
+			            <h3 class="mt-5">Carlos Rábago</h3>
+		            </a>
 		        </article>
 		        <article class="nosotros">
-		            <img src="/images/smartinez.jpg" class="nosotros-img">
-		            <h3 class="mt-5">Sergio Martínez</h3>
+		        	<a href="https://www.linkedin.com/in/sergio-martinez-rivera/" target="_blank" rel="noopener noreferrer">
+			            <img src="/images/smartinez.jpg" class="nosotros-img">
+			            <h3 class="mt-5">Sergio Martínez</h3>
+		            </a>
 		        </article>
 		        
 		    </section>

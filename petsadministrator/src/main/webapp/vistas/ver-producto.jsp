@@ -47,6 +47,7 @@
 								<p id="mensajeStock">${alertastock}</p>
 							</div>
 							<div class="col-6">
+								<a class="btn btn-outline-primary me-3" href="javascript:history.back()">Volver</a>
 								<input class="btn btn-primary" type="submit" value="Añadir">
 							</div> 
 						</div>
@@ -63,12 +64,12 @@
 								<p id="mensajeStock">${alertastock}</p>
 							</div>
 							<div class="col-6">
+								<a class="btn btn-outline-primary me-3" href="javascript:history.back()">Volver</a>
 								<input class="btn btn-primary" type="submit" value="Añadir">
 							</div> 
 						</div>
 					</form>
 					</sec:authorize>
-					
 					
 					</div>
 					
