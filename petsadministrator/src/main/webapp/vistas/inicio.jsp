@@ -16,6 +16,9 @@
 		
 		<main class="main">
 			<section>
+				<div id="contenedor_titulo_hero" class="titulo_hero">
+			    	PETS-ADMINISTRATOR
+			  	</div>
 				<div class="hero_img">
 					<img src="/images/petsHero.jpg" alt="">
 				</div>
@@ -49,6 +52,23 @@
 	
 		<jsp:include page="footer.jsp"></jsp:include>
 			
+		<script type="text/javascript">
+			const separar = id => {
+			  const element = document.getElementById(id),
+			        text = element.innerText.split("");
+
+			  element.innerText = "";
+
+			  text.forEach(letra => {
+			    const span = document.createElement("span");
+			    span.className = "letra";
+			    span.innerText = letra;
+			    element.appendChild(span);
+			  })
+			}
+
+			separar("contenedor_titulo_hero")
+		</script>
 	</body>
 	
 </html>

@@ -65,6 +65,7 @@ footer a:hover{
 
 main{
     min-height: 50rem;
+    position: relative;
 }
 
 
@@ -97,10 +98,103 @@ nav .nav-link{
 
 /*  HERO  */
 
+.titulo_hero {
+display: flex;
+justify-content: center;
+width: 100%;
+padding: 0.3rem 0.3rem;
+text-align: center;
+}
+
+.letra {
+position: relative;
+display: inline-block;
+font-size: clamp(1rem, 8vw, 10rem);
+transition: all 0.3s ease-in-out;
+cursor: pointer;
+color: #ECA62C;
+font-weight: bold;
+}
+
+
+
+@keyframes flotar {
+    from, to {
+        transform: translateY(-0%);
+    }
+
+    50% {    
+        transform: translateY(-3%);
+    }
+}
+
+.titulo_hero > .letra {
+transition: transform 350ms ease;
+drop-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+}
+
+.titulo_hero:hover {
+transition-duration: 800ms;
+animation: flotar 5s ease infinite;
+}
+
+.titulo_hero:hover > span:nth-child(1) {
+transform: translate(-6%, 6%) rotate(8deg);
+}
+.titulo_hero:hover > span:nth-child(2) {
+transform: translate(-4%, 2%) rotate(4deg);
+}
+.titulo_hero:hover > span:nth-child(3) {
+transform: translate(-1%, 2%) rotate(-8deg);
+}
+.titulo_hero:hover > span:nth-child(4) {
+transform: translate(0%, 0.8%) rotate(-8deg);
+}
+.titulo_hero:hover > span:nth-child(6) {
+transform: translate(0%, -2%) rotate(5deg);
+}
+.titulo_hero:hover > span:nth-child(7) {
+transform: translate(0%, 2%) rotate(-3deg);
+}
+.titulo_hero:hover > span:nth-child(8) {
+transform: translate(0%, -4%) rotate(-5deg);
+}
+.titulo_hero:hover > span:nth-child(9) {
+transform: translate(0%, 1.5%) rotate(10deg);
+}
+.titulo_hero:hover > span:nth-child(10) {
+transform: translate(0%, -1%) rotate(8deg);
+}
+.titulo_hero:hover > span:nth-child(11) {
+transform: translate(0%, 1.5%) rotate(-6deg);
+}
+.titulo_hero:hover > span:nth-child(12) {
+transform: translate(5%, -1%) rotate(-3deg);
+}
+.titulo_hero:hover > span:nth-child(13) {
+transform: translate(8%, -2%) rotate(-10deg);
+}
+.titulo_hero:hover > span:nth-child(14) {
+transform: translate(3%, 3%) rotate(20deg);
+}
+.titulo_hero:hover > span:nth-child(15) {
+transform: translate(2%, -3%) rotate(-10deg);
+}
+.titulo_hero:hover > span:nth-child(16) {
+transform: translate(0%, -3%) rotate(10deg);
+}
+.titulo_hero:hover > span:nth-child(17) {
+transform: translate(-2%, 3%) rotate(-7deg);
+}
+.titulo_hero:hover > span:nth-child(18) {
+transform: translate(0%, 3%) rotate(7deg);
+}
+
+
 .hero_img img {
 	width: 100%;
 	height: auto;
-	
+	object-fit: cover;
 }
 
 /*  FOOTER  */
@@ -219,7 +313,7 @@ nav .nav-link{
     width: 100%;
 }
 .portfolio-wrapper:hover .portfolio-image img {
-    transform: scale(0.9);
+    transform: scale(1.05);
 }
 .portfolio-overlay:before {
     position: absolute;
@@ -427,5 +521,16 @@ nav .nav-link{
         bottom: 10px;
         left: 10px;
     }
+}
+
+/*  PÁG ERROR  */
+
+.error-container {
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  flex-direction: column;
+	  width: 100%;
+	  margin: 24px;
 }
 
