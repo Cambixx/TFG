@@ -20,7 +20,7 @@
 		
 		<main>
 			
-			<section class="container d-flex justify-content-center">
+			<section class="container d-flex justify-content-center contenedor_nosotros">
 					        
 		        <article class="nosotros">
 		        	<a href="https://carlos-rabago.netlify.app/" target="_blank" rel="noopener noreferrer">

@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.edix.apirest.pets.entities.Rol;
 import com.edix.apirest.pets.entities.Tarjeta;
 import com.edix.apirest.pets.entities.Usuario;
 import com.edix.apirest.pets.repository.TarjetaRepository;
@@ -85,78 +84,40 @@ public class TarjetasController {
 		
 		return "lista-tarjetas";
 	}
-	/*
-	// Página para editar una tarjeta
+
+	
+// Ir al formulario para editar la tarjeta
 	@GetMapping("/editar-tarjeta/{id}")
-	public String enviarFormularioEditar(Model model, @PathVariable("id") int idTarjeta) {
-		model.addAttribute("tarjeta", tserv.buscarTarjeta(idTarjeta));
-		
+	public String editarTarjeta(Model model, @PathVariable(name="id") int  idTarjeta) {
+		Tarjeta tarjeta = tserv.buscarTarjeta(idTarjeta);
+		model.addAttribute("tarjetaElegida", tarjeta);
+			
 		return "editar-tarjeta";
 	}
 	
 	// Formulario para editar la tarjeta
 	@PostMapping("/editar-tarjeta/{id}")
-	public String procesarFormularioEditar(Authentication aut,Model model,Tarjeta tarjeta,  @PathVariable("id") int  idTarjeta) {
-		
-		String username = aut.getName();
-		Usuario user = userv.buscarUsuario(username);
-		
-		if (tserv.buscarTarjeta(idTarjeta) == null){
-			model.addAttribute("mensaje", "<div class=\"alert alert-warning\" role=\"alert\">\r\n"
+	public String procesarCambioTarjeta(RedirectAttributes ratt, Tarjeta tarjeta, @PathVariable(name="id") int  idTarjeta) {
+			
+		if(tserv.buscarTarjeta(idTarjeta) == null) {
+			ratt.addFlashAttribute("mensaje", "<div class=\"alert alert-warning\" role=\"alert\">\r\n"
 				+ "  La tarjeta no existe\r\n"
 				+ "</div>");
-		}else{
+		}else {
 			tarjeta.setIdTarjeta(idTarjeta);
 			if (tserv.modificarTarjeta(tarjeta) == 1) {
-				model.addAttribute("mensaje", "<div class=\"alert alert-success\" role=\"alert\">\r\n"
-					+ "  Tarjeta editada con éxito\r\n"
+				ratt.addFlashAttribute("mensaje", "<div class=\"alert alert-success\" role=\"alert\">\r\n"
+					+ "  Tarjeta modificada con éxito\r\n"
 					+ "</div>");
 			}else {
-				model.addAttribute("mensaje", "<div class=\"alert alert-warning\" role=\"alert\">\r\n"
-					+ "  La tarjeta no se ha podido editar\r\n"
-					+ "</div>");
-			}
-		}
-		
-		List<Tarjeta> tarjetas = tserv.tarjetasUsuario(user.getIdUsuario());
-		model.addAttribute("tarjetasUsuario", tarjetas);
-		
-		return "redirect:/lista-tarjetas/{id}";
-	}
-	*/
-	
-	// Ir al formulario para editar la tarjeta
-		@GetMapping("/editar-tarjeta/{id}")
-		public String editarTarjeta(Model model, @PathVariable(name="id") int  idTarjeta) {
-			Tarjeta tarjeta = tserv.buscarTarjeta(idTarjeta);
-			model.addAttribute("tarjetaElegida", tarjeta);
-				
-			return "editar-tarjeta";
-		}
-		
-		// Formulario para editar la tarjeta
-		@PostMapping("/editar-tarjeta/{id}")
-		public String procesarCambioTarjeta(RedirectAttributes ratt, Tarjeta tarjeta, @PathVariable(name="id") int  idTarjeta) {
-				
-			if(tserv.buscarTarjeta(idTarjeta) == null) {
 				ratt.addFlashAttribute("mensaje", "<div class=\"alert alert-warning\" role=\"alert\">\r\n"
-					+ "  La tarjeta no existe\r\n"
+					+ "  Tarjeta no modificada\r\n"
 					+ "</div>");
-			}else {
-				tarjeta.setIdTarjeta(idTarjeta);
-				if (tserv.modificarTarjeta(tarjeta) == 1) {
-					ratt.addFlashAttribute("mensaje", "<div class=\"alert alert-success\" role=\"alert\">\r\n"
-						+ "  Tarjeta modificada con éxito\r\n"
-						+ "</div>");
-				}else {
-					ratt.addFlashAttribute("mensaje", "<div class=\"alert alert-warning\" role=\"alert\">\r\n"
-						+ "  Tarjeta no modificada\r\n"
-						+ "</div>");
-				}
 			}
-				
-			return "redirect:/";
 		}
+			
+		return "redirect:/";
+	}
 	// Formatear la fecha para el formulario
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {

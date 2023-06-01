@@ -94,9 +94,6 @@ public class CestaController {
 		List<LineaPedidoDto> cesta = (List<LineaPedidoDto>)sesion.getAttribute("cesta");
 		model.addAttribute("cesta", cesta);
 		
-		//Usuario user = (Usuario)sesion.getAttribute("usuario");
-		
-		//System.out.println("Usuario en sesión = " + user + "!");
 		List<Direccion> duser = dserv.direccionesUsuario(idUsuario);
 		model.addAttribute("DireccionesUsuario", duser);
 		
@@ -109,57 +106,6 @@ public class CestaController {
 		return "carrito";
 	}
 	
-	// Formulario para procesar el pedido, el usuario, la dirección y la tarjeta 
-	/*@PostMapping("/comprar")
-	public String comprarPost(RedirectAttributes ratt, Model model, HttpSession sesion, Direccion direccion, Tarjeta tarjeta,  LineaPedidoDto linea) {
-		List<LineaPedidoDto> lista = (List<LineaPedidoDto>)sesion.getAttribute("cesta");
-		
-		for (LineaPedidoDto ele: lista) {
-			System.out.println("Linea de la compra: " + ele);
-			
-		}
-		
-		
-		System.out.println("Lista => " + lista);
-		Pedido p = new Pedido();
-
-		p.setDireccion(direccion);
-		p.setTarjeta(tarjeta);
-
-		//p.setEstado("Terminado");
-		p.setFechaRealizacion(new Date());
-		Usuario user = (Usuario)sesion.getAttribute("userCompra");
-		p.setUsuario(user);
-		
-		List<ProductosEnPedido> listaLP = new ArrayList<>();
-		
-		for (LineaPedidoDto ele: lista) {
-			ProductosEnPedido pep = new ProductosEnPedido();
-			pep.setCantidad(ele.getCantidad());
-			pep.setPedido(p);
-			pep.setProducto(prepo.findById(ele.getIdProducto()).orElse(null));
-			pep.setPrecio(BigDecimal.valueOf(ele.getPrecioVenta()));
-			System.out.println("Linea de pedido: " + pep);
-			listaLP.add(pep);
-		}
-		
-		 
-		for (int i = 0; i < listaLP.size(); i++) {
-			System.out.println("Elemento " + i + ":" + listaLP.get(i));
-		}
-		
-		System.out.println(p);
-		pserv.altaPedido(p, "Terminado");
-		
-		sesion.setAttribute("cesta", null);
-		
-		ratt.addFlashAttribute("mensaje", "<div class=\"alert alert-success\" role=\"alert\">\r\n"
-				+ "  Compra realizada con éxito :) \r\n"
-				+ "</div>");
-		
-		return "redirect:/lista-productos";
-	}
-*/
 	@PostMapping("/comprar")
 	public String comprarPost(RedirectAttributes ratt, Model model, HttpSession sesion, Direccion direccion, Tarjeta tarjeta, LineaPedidoDto linea) {
 	    List<LineaPedidoDto> lista = (List<LineaPedidoDto>) sesion.getAttribute("cesta");
@@ -174,7 +120,6 @@ public class CestaController {
 	    p.setDireccion(direccion);
 	    p.setTarjeta(tarjeta);
 
-	    // p.setEstado("Terminado");
 	    p.setFechaRealizacion(new Date());
 	    Usuario user = (Usuario) sesion.getAttribute("userCompra");
 	    p.setUsuario(user);

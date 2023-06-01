@@ -21,10 +21,5 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{
 	@Query("select u.tarjetas from Usuario u where u.idUsuario = ?1")
 	public List<Tarjeta> tarjetasPorUsuario(int idUsuario);
 	
-	/*
-	@Query("SELECT d.localidad, COUNT(*) as total_clientes FROM usuarios u  INNER JOIN usuarios_con_direcciones uc ON u.id_usuario = uc.id_usuario INNER JOIN direcciones d ON uc.id_direccion = d.id_direccion GROUP BY d.localidad")
-	public int numeroPorLocalidad();
-	*/
-	
 }
 

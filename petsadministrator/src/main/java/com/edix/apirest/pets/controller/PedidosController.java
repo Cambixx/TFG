@@ -26,16 +26,4 @@ public class PedidosController {
 		return "lista-pedidos";
 	}
 	
-	/*
-	// Ver un pedido según su ID
-	@GetMapping("/ver-pedido/{id}")
-	public String verPedido(Model model, @PathVariable(name="id") int  idPedido) {
-		Pedido pedido = pserv.findById(idPedido);
-		
-		model.addAttribute("pedido", pedido);
-		
-		return "ver-pedido";
-	}
-	*/
-	
 }

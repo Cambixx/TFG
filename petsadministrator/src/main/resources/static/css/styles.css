@@ -490,6 +490,12 @@ transform: translate(0%, 6%) rotate(7deg);
     opacity: 1;
 }
 @media screen and (max-width: 1199px) {
+	.contenedor_nosotros {
+		flex-direction: column;
+		align-items: center;
+  justify-content: center;
+	}
+	
     .grid .grid-item .portfolio-content h4 {
         font-size: 18px;
     }

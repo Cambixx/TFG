@@ -76,79 +76,37 @@ public class DireccionesController {
 			
 		return "lista-direcciones";
 	}
-	/*
-	 	
-	 
-	// Página para ditar una dirección
+	
+	// Ir al formulario para editar la direccion
 	@GetMapping("/editar-direccion/{id}")
-	public String enviarFormularioEditar(Model model, @PathVariable("id") int idDireccion) {
-		model.addAttribute("direccion", dserv.buscarDireccion(idDireccion));
+	public String editarTarjeta(Model model, @PathVariable(name="id") int  idDireccion) {
+		Direccion direccion = dserv.buscarDireccion(idDireccion);
+		model.addAttribute("direccionElegida", direccion);
 			
 		return "editar-direccion";
 	}
-		
-	// Formulario para editar la dirección
+	
+	// Formulario para editar la direccion
 	@PostMapping("/editar-direccion/{id}")
-	public String procesarFormularioEditar(Authentication aut,Model model,Direccion direccion,  @PathVariable("id") int  idDireccion) {
+	public String procesarCambioTarjeta(RedirectAttributes ratt, Direccion direccion, @PathVariable(name="id") int  idDireccion) {
 			
-		String username = aut.getName();
-		Usuario user = userv.buscarUsuario(username);
-			
-		if (dserv.buscarDireccion(idDireccion) == null){
-			model.addAttribute("mensaje", "<div class=\"alert alert-warning\" role=\"alert\">\r\n"
-					+ "  La dirección no existe\r\n"
-					+ "</div>");
-		}else{
+		if(dserv.buscarDireccion(idDireccion) == null) {
+			ratt.addFlashAttribute("mensaje", "<div class=\"alert alert-warning\" role=\"alert\">\r\n"
+				+ "  La direccion no existe\r\n"
+				+ "</div>");
+		}else {
 			direccion.setIdDireccion(idDireccion);
 			if (dserv.modificarDireccion(direccion) == 1) {
-				model.addAttribute("mensaje", "<div class=\"alert alert-success\" role=\"alert\">\r\n"
-					+ "  Direccion editada con éxito\r\n"
+				ratt.addFlashAttribute("mensaje", "<div class=\"alert alert-success\" role=\"alert\">\r\n"
+					+ "  Dirección modificada con éxito\r\n"
 					+ "</div>");
 			}else {
-				model.addAttribute("mensaje", "<div class=\"alert alert-warning\" role=\"alert\">\r\n"
-					+ "  La dirección no se ha podido editar\r\n"
+				ratt.addFlashAttribute("mensaje", "<div class=\"alert alert-warning\" role=\"alert\">\r\n"
+					+ "  Dirección no modificada\r\n"
 					+ "</div>");
 			}
 		}
 			
-		List<Direccion> direcciones = dserv.direccionesUsuario(user.getIdUsuario());
-		model.addAttribute("direccionesUsuario", direcciones);
-			
-		return "lista-direcciones";
-	}
-	
-	*/
-	
-	// Ir al formulario para editar la direccion
-			@GetMapping("/editar-direccion/{id}")
-			public String editarTarjeta(Model model, @PathVariable(name="id") int  idDireccion) {
-				Direccion direccion = dserv.buscarDireccion(idDireccion);
-				model.addAttribute("direccionElegida", direccion);
-					
-				return "editar-direccion";
-			}
-			
-			// Formulario para editar la direccion
-			@PostMapping("/editar-direccion/{id}")
-			public String procesarCambioTarjeta(RedirectAttributes ratt, Direccion direccion, @PathVariable(name="id") int  idDireccion) {
-					
-				if(dserv.buscarDireccion(idDireccion) == null) {
-					ratt.addFlashAttribute("mensaje", "<div class=\"alert alert-warning\" role=\"alert\">\r\n"
-						+ "  La direccion no existe\r\n"
-						+ "</div>");
-				}else {
-					direccion.setIdDireccion(idDireccion);
-					if (dserv.modificarDireccion(direccion) == 1) {
-						ratt.addFlashAttribute("mensaje", "<div class=\"alert alert-success\" role=\"alert\">\r\n"
-							+ "  Dirección modificada con éxito\r\n"
-							+ "</div>");
-					}else {
-						ratt.addFlashAttribute("mensaje", "<div class=\"alert alert-warning\" role=\"alert\">\r\n"
-							+ "  Dirección no modificada\r\n"
-							+ "</div>");
-					}
-				}
-					
-				return "redirect:/";
-			}	
+		return "redirect:/";
+	}	
 }
