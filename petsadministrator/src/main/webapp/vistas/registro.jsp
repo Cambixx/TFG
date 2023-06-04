@@ -25,7 +25,7 @@
 						<label class="small mb-1" for="username">Username</label>
 					</div>
 					<div class="form-floating mb-3 col-md-4">
-						<input class="form-control" id="email" name="email" type="text" placeholder="Email" required>
+						<input class="form-control" id="email" name="email" type="email" placeholder="Email" required>
 						<label class="small mb-1" for="email">Email</label>
 					</div>
 					<div class="form-floating mb-3 col-md-4">

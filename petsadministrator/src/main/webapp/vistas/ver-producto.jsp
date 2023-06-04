@@ -80,7 +80,24 @@
 		</main>
 			
 		<jsp:include page="footer.jsp"></jsp:include>
-			
+		
+		<script type="text/javascript">
+		function validarCantidad() {
+			 var cantidadInput = document.getElementById('cantidad');
+			 var mensajeStock = document.getElementById('mensajeStock');
+
+			 var cantidad = parseInt(cantidadInput.value);
+			 var stockDisponible = ${producto.stock}; 
+
+			 if (cantidad > stockDisponible) {
+			  mensajeStock.textContent = 'No hay suficiente stock disponible.';
+		     return false; // Evita enviar el formulario
+				   } else {
+			  mensajeStock.textContent = ''; // Borra el mensaje de alerta
+			 return true; 
+				}
+			}
+		</script>
 	</body>
 	
 </html>
